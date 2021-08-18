@@ -7,13 +7,15 @@ class Parent extends React.Component {
     this.state = {
       parent: 0,
       count: 0
+      // f: 0
     };
   }
   addChild(key, value) {
     this.setState({ [key]: value + 1 });
+    //this.setState({ f: 1 });
     console.log(value);
   }
-  removeChild(key, value) {}
+
   handleCount() {
     this.setState((prevState) => ({ count: prevState.count + 1 }));
   }
@@ -21,26 +23,27 @@ class Parent extends React.Component {
     return (
       <>
         <p>{this.state.child_count}</p>
-        <button
+
+        <br />
+        <br />
+        <button onClick={() => this.handleCount()}>+</button>
+
+        <p>Counter : {this.state.count}</p>
+      </>
+    );
+  }
+}
+
+export default Parent;
+/*
+{
+<button
           onClick={() => {
             this.addChild(this.state.parent, this.state.child_count);
           }}
         >
           Add child
         </button>
-        <br />
-        <br />
-        <button onClick={() => this.handleCount()}>+</button>
-        <button
-          onClick={() => {
-            this.removeChild(this.state.parent, this.state.child_count);
-          }}
-        >
-          X
-        </button>
-        <p>Counter : {this.state.count}</p>
-      </>
-    );
-  }
 }
-export default Parent;
+
+*/
